@@ -3,6 +3,9 @@
 // Developer Notes: Easy to modify
 // ====================================
 
+const navToggle = document.getElementById('navToggle');
+const navMenu = document.getElementById('navMenu');
+
 // Smooth Scrolling for Navigation
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -14,20 +17,21 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 block: 'start'
             });
             // Close mobile menu if open
-            navMenu.classList.remove('active');
-            navToggle.classList.remove('active');
+            if (navMenu && navToggle) {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+            }
         }
     });
 });
 
 // Mobile Navigation Toggle
-const navToggle = document.getElementById('navToggle');
-const navMenu = document.getElementById('navMenu');
-
-navToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    navToggle.classList.toggle('active');
-});
+if (navToggle && navMenu) {
+    navToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        navToggle.classList.toggle('active');
+    });
+}
 
 // Active Navigation Link on Scroll
 const sections = document.querySelectorAll('section[id]');
@@ -98,27 +102,29 @@ document.querySelectorAll('.stat-number').forEach(stat => {
 // Contact Form Handling
 const contactForm = document.getElementById('contactForm');
 
-contactForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        subject: document.getElementById('subject').value,
-        message: document.getElementById('message').value
-    };
-    
-    // Developer Note: Here you can add your form submission logic
-    // For example: send to email service, API endpoint, etc.
-    
-    console.log('Form Data:', formData);
-    
-    // Show success message
-    alert('شكراً لتواصلك! سأرد عليك في أقرب وقت ممكن.');
-    
-    // Reset form
-    contactForm.reset();
-});
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            subject: document.getElementById('subject').value,
+            message: document.getElementById('message').value
+        };
+        
+        // Developer Note: Here you can add your form submission logic
+        // For example: send to email service, API endpoint, etc.
+        
+        console.log('Form Data:', formData);
+        
+        // Show success message
+        alert('شكراً لتواصلك! سأرد عليك في أقرب وقت ممكن.');
+        
+        // Reset form
+        contactForm.reset();
+    });
+}
 
 // ====================================
 // Admin Panel Functionality
@@ -128,22 +134,34 @@ const adminBtn = document.getElementById('adminBtn');
 let adminClickCount = 0;
 let adminClickTimer;
 
-// Triple click to access admin
-adminBtn.addEventListener('click', () => {
-    adminClickCount++;
-    
+function handleAdminClicks() {
+    adminClickCount += 1;
+
     if (adminClickCount === 1) {
         adminClickTimer = setTimeout(() => {
             adminClickCount = 0;
-        }, 1000);
+        }, 900);
     }
-    
+
     if (adminClickCount === 3) {
         clearTimeout(adminClickTimer);
         adminClickCount = 0;
         showLoginModal();
     }
-});
+}
+
+if (adminBtn) {
+    adminBtn.addEventListener('click', handleAdminClicks);
+    adminBtn.addEventListener('touchend', handleAdminClicks, { passive: true });
+
+    // Keyboard accessibility
+    adminBtn.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            handleAdminClicks();
+        }
+    });
+}
 
 // Create and show login modal
 function showLoginModal() {
@@ -519,6 +537,211 @@ document.querySelectorAll('.project-card').forEach(card => {
     });
 });
 
+// Project details gallery
+const projectDetailsMap = {
+    store: {
+        title: 'تطبيق متجر إلكتروني',
+        subtitle: 'تجربة تسوق سلسة مع إدارة المنتجات والدفع الآمن.',
+        description: 'مشروع يركز على تجربة المستخدم، أداء سريع، وتكامل آمن مع بوابات الدفع.',
+        tags: ['Flutter', 'Dart', 'Firebase', 'Payments'],
+        images: [
+            'https://picsum.photos/seed/store-1/1200/675',
+            'https://picsum.photos/seed/store-2/1200/675',
+            'https://picsum.photos/seed/store-3/1200/675',
+            'https://picsum.photos/seed/store-4/1200/675'
+        ]
+    },
+    education: {
+        title: 'منصة تعليمية تفاعلية',
+        subtitle: 'لوحات متابعة واختبارات ومواد تعليمية منظمة.',
+        description: 'تصميم تجربة تعليمية واضحة للطلاب والإدارة مع تقارير تقدم.',
+        tags: ['PHP', 'Bootstrap', 'MySQL'],
+        images: [
+            'https://picsum.photos/seed/edu-1/1200/675',
+            'https://picsum.photos/seed/edu-2/1200/675',
+            'https://picsum.photos/seed/edu-3/1200/675'
+        ]
+    },
+    clinic: {
+        title: 'نظام إدارة العيادات',
+        subtitle: 'مواعيد وسجلات وفواتير ضمن لوحة موحدة.',
+        description: 'حل متكامل لإدارة العيادات بصلاحيات متعددة وسير عمل واضح.',
+        tags: ['PHP', 'HTML/CSS', 'PostgreSQL'],
+        images: [
+            'https://picsum.photos/seed/clinic-1/1200/675',
+            'https://picsum.photos/seed/clinic-2/1200/675',
+            'https://picsum.photos/seed/clinic-3/1200/675'
+        ]
+    },
+    food: {
+        title: 'تطبيق توصيل الطعام',
+        subtitle: 'تتبع مباشر للطلبات وتقييم المطاعم.',
+        description: 'واجهة سهلة للطلبات مع خرائط وتحديثات لحظية.',
+        tags: ['Flutter', 'Dart', 'Maps API'],
+        images: [
+            'https://picsum.photos/seed/food-1/1200/675',
+            'https://picsum.photos/seed/food-2/1200/675',
+            'https://picsum.photos/seed/food-3/1200/675'
+        ]
+    },
+    analytics: {
+        title: 'لوحة تحكم تحليلية',
+        subtitle: 'تقارير تفاعلية لمؤشرات الأداء.',
+        description: 'لوحة بيانات تساعد على اتخاذ القرار بسرعة.',
+        tags: ['PHP', 'JavaScript', 'Charts'],
+        images: [
+            'https://picsum.photos/seed/analytics-1/1200/675',
+            'https://picsum.photos/seed/analytics-2/1200/675',
+            'https://picsum.photos/seed/analytics-3/1200/675'
+        ]
+    },
+    tasks: {
+        title: 'تطبيق إدارة المهام',
+        subtitle: 'تنظيم يومي مع تذكيرات ذكية.',
+        description: 'واجهة خفيفة لإدارة المهام والتذكيرات.',
+        tags: ['Flutter', 'Dart', 'SQLite'],
+        images: [
+            'https://picsum.photos/seed/tasks-1/1200/675',
+            'https://picsum.photos/seed/tasks-2/1200/675',
+            'https://picsum.photos/seed/tasks-3/1200/675'
+        ]
+    },
+    wallet: {
+        title: 'تطبيق محفظة رقمية',
+        subtitle: 'تحويلات ومدفوعات بأمان وسهولة.',
+        description: 'لوحة مالية مع تنبيهات وتقارير مبسطة.',
+        tags: ['Flutter', 'Dart', 'API'],
+        images: [
+            'https://picsum.photos/seed/wallet-1/1200/675',
+            'https://picsum.photos/seed/wallet-2/1200/675',
+            'https://picsum.photos/seed/wallet-3/1200/675'
+        ]
+    },
+    orders: {
+        title: 'نظام متابعة الطلبات',
+        subtitle: 'متابعة المخزون والطلبات بوضوح.',
+        description: 'إدارة يومية للطلبات مع تقارير وأذونات.',
+        tags: ['PHP', 'Bootstrap', 'MySQL'],
+        images: [
+            'https://picsum.photos/seed/orders-1/1200/675',
+            'https://picsum.photos/seed/orders-2/1200/675'
+        ]
+    },
+    school: {
+        title: 'تطبيق النقل المدرسي',
+        subtitle: 'تتبع الحافلات وإشعارات لحظية.',
+        description: 'حل آمن لأولياء الأمور مع خرائط دقيقة.',
+        tags: ['Flutter', 'Dart', 'Maps API'],
+        images: [
+            'https://picsum.photos/seed/school-1/1200/675',
+            'https://picsum.photos/seed/school-2/1200/675'
+        ]
+    },
+    stores: {
+        title: 'منصة إدارة المتاجر',
+        subtitle: 'لوحة مبيعات ومخزون في واجهة واحدة.',
+        description: 'تقارير وإدارة صلاحيات مع أداء سريع.',
+        tags: ['PHP', 'HTML/CSS', 'MySQL'],
+        images: [
+            'https://picsum.photos/seed/stores-1/1200/675',
+            'https://picsum.photos/seed/stores-2/1200/675'
+        ]
+    },
+    roles: {
+        title: 'نظام صلاحيات المستخدمين',
+        subtitle: 'تحكم كامل بالأدوار والصلاحيات.',
+        description: 'سجل نشاطات وتنبيهات أمنية للإدارة.',
+        tags: ['PHP', 'Bootstrap', 'Security'],
+        images: [
+            'https://picsum.photos/seed/roles-1/1200/675',
+            'https://picsum.photos/seed/roles-2/1200/675'
+        ]
+    },
+    support: {
+        title: 'نظام دعم العملاء الذكي',
+        subtitle: 'إدارة التذاكر وتقارير الأداء.',
+        description: 'تصنيف التذاكر وخط سير واضح للفريق.',
+        tags: ['PHP', 'JavaScript', 'MySQL'],
+        images: [
+            'https://picsum.photos/seed/support-1/1200/675',
+            'https://picsum.photos/seed/support-2/1200/675'
+        ]
+    }
+};
+
+function initProjectDetails() {
+    const detailsPage = document.querySelector('[data-project-details]');
+    if (!detailsPage) return;
+
+    const params = new URLSearchParams(window.location.search);
+    const projectKey = params.get('project') || detailsPage.getAttribute('data-project-details') || 'store';
+    const data = projectDetailsMap[projectKey] || projectDetailsMap.store;
+
+    const titleEl = document.getElementById('projectTitle');
+    const subtitleEl = document.getElementById('projectSubtitle');
+    const descEl = document.getElementById('projectDescription');
+    const tagsEl = document.getElementById('projectTags');
+    const mainImage = document.getElementById('galleryMainImage');
+    const thumbsEl = document.getElementById('galleryThumbs');
+    const prevBtn = document.getElementById('galleryPrev');
+    const nextBtn = document.getElementById('galleryNext');
+
+    if (!titleEl || !subtitleEl || !descEl || !tagsEl || !mainImage || !thumbsEl) return;
+
+    titleEl.textContent = data.title;
+    subtitleEl.textContent = data.subtitle;
+    descEl.textContent = data.description;
+
+    tagsEl.innerHTML = '';
+    data.tags.forEach(tag => {
+        const span = document.createElement('span');
+        span.className = 'tag';
+        span.textContent = tag;
+        tagsEl.appendChild(span);
+    });
+
+    let currentIndex = 0;
+
+    function renderMain() {
+        mainImage.src = data.images[currentIndex];
+        mainImage.alt = data.title;
+        Array.from(thumbsEl.children).forEach((child, index) => {
+            child.classList.toggle('active', index === currentIndex);
+        });
+    }
+
+    thumbsEl.innerHTML = '';
+    data.images.forEach((src, index) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'gallery-thumb';
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = `${data.title} ${index + 1}`;
+        button.appendChild(img);
+        button.addEventListener('click', () => {
+            currentIndex = index;
+            renderMain();
+        });
+        thumbsEl.appendChild(button);
+    });
+
+    if (prevBtn && nextBtn) {
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + data.images.length) % data.images.length;
+            renderMain();
+        });
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % data.images.length;
+            renderMain();
+        });
+    }
+
+    renderMain();
+}
+
+initProjectDetails();
+
 // Console message for developers
 console.log(`
 ╔═══════════════════════════════════════╗
@@ -530,6 +753,6 @@ Developer Notes:
 - All styles are in styles.css
 - Easy to modify and maintain
 - Fully responsive design
-- Admin panel: Triple-click ⚙️ button
+- Admin panel: Triple-click the ⚙️ button
 - Credentials: admin / 2026
 `);

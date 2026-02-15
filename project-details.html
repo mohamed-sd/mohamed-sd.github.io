@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفاصيل المشروع</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Changa:wght@400;600;700;800&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Theme Overlay for Special Events -->
+    <div id="theme-overlay" class="theme-overlay"></div>
+    <div class="ramadan-decor" aria-hidden="true">
+        <div class="ramadan-garland"></div>
+        <div class="ramadan-lantern lantern-left"></div>
+        <div class="ramadan-lantern lantern-center"></div>
+        <div class="ramadan-lantern lantern-right"></div>
+    </div>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/201097240734" target="_blank" class="whatsapp-float" aria-label="تواصل عبر واتساب">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <span class="brand-icon">&lt;/&gt;</span>
+                <span class="brand-text">محمد سيد حسن</span>
+                <span class="brand-subtitle">Software Developer</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html#home" class="nav-link">الرئيسية</a></li>
+                <li><a href="index.html#about" class="nav-link">نبذة عني</a></li>
+                <li><a href="index.html#services" class="nav-link">الخدمات</a></li>
+                <li><a href="projects.html" class="nav-link">المشاريع</a></li>
+                <li><a href="index.html#contact" class="nav-link">تواصل معي</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="القائمة">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Project Details -->
+    <section class="project-details" data-project-details="store">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">تفاصيل المشروع</span>
+                <h1 class="section-title" id="projectTitle">تفاصيل المشروع</h1>
+            </div>
+            <div class="details-layout">
+                <div class="gallery">
+                    <div class="gallery-main">
+                        <img id="galleryMainImage" src="" alt="">
+                        <div class="gallery-controls">
+                            <button class="gallery-btn" id="galleryNext" type="button" aria-label="الصورة التالية">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <button class="gallery-btn" id="galleryPrev" type="button" aria-label="الصورة السابقة">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="gallery-thumbs" id="galleryThumbs"></div>
+                </div>
+                <div class="details-card">
+                    <h2 class="details-title" id="projectSubtitle">تفاصيل المشروع</h2>
+                    <p class="details-subtitle" id="projectDescription"></p>
+                    <div class="details-tags" id="projectTags"></div>
+                    <div class="hero-buttons" style="margin-top: 2rem;">
+                        <a href="projects.html" class="btn btn-secondary">
+                            <span>عودة للمشاريع</span>
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                        <a href="index.html#contact" class="btn btn-primary">
+                            <span>ابدأ مشروعك الآن</span>
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="brand-icon">&lt;/&gt;</span>
+                    <span class="brand-text">محمد سيد حسن</span>
+                </div>
+                <p class="footer-text">
+                    مهندس تطبيقات جوال ومواقع | Flutter و Dart و PHP
+                </p>
+                <p class="footer-copyright">
+                    © 2024 جميع الحقوق محفوظة
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Admin Access Button (Hidden) -->
+    <div class="admin-access" id="adminAccess">
+        <button class="admin-btn" id="adminBtn" aria-label="فتح لوحة التحكم">⚙️</button>
+        <span class="admin-label">لوحة التحكم</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
