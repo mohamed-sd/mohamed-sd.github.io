@@ -1,154 +1,513 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>بروفايل محمد سيد وأحمد عبد الوهاب</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Cairo', sans-serif;
-    }
-
-    body {
-      background-color: #0f0f0f;
-      color: #f0f0f0;
-      line-height: 1.8;
-      padding: 20px;
-    }
-
-    header {
-      text-align: center;
-      padding: 40px 20px;
-      background: linear-gradient(to right, #00c6ff, #0072ff);
-      border-radius: 20px;
-      margin-bottom: 40px;
-      color: white;
-      animation: fadeInDown 1s ease-out;
-    }
-
-    header h1 {
-      font-size: 2.8em;
-      margin-bottom: 10px;
-    }
-
-    header p {
-      font-size: 1.3em;
-    }
-
-    .section {
-      background: #1a1a1a;
-      padding: 30px;
-      border-radius: 20px;
-      margin-bottom: 30px;
-      box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .section:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
-    }
-
-    h2 {
-      color: #00e6e6;
-      font-size: 1.8em;
-      margin-bottom: 15px;
-      border-right: 5px solid #00e6e6;
-      padding-right: 10px;
-    }
-
-    .experience ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .experience ul li::before {
-      content: "✔";
-      color: #00e6e6;
-      margin-left: 8px;
-    }
-
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .project {
-      background: linear-gradient(145deg, #111, #1f1f1f);
-      padding: 20px;
-      border-radius: 15px;
-      transition: all 0.3s ease;
-      border: 1px solid #333;
-    }
-
-    .project:hover {
-      border-color: #00e6e6;
-      transform: scale(1.03);
-    }
-
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2em;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محمد - مهندس ومطور تطبيقات | Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <header>
-    <h1>محمد سيد وأحمد عبد الوهاب</h1>
-    <p>مهندسان بخبرة تزيد عن 8 سنوات وأكثر من 20 مشروع برمجي ناجح</p>
-  </header>
+    <!-- Theme Overlay for Special Events -->
+    <div id="theme-overlay" class="theme-overlay"></div>
+    
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/201234567890" target="_blank" class="whatsapp-float" aria-label="تواصل عبر واتساب">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
-  <section class="section profile-info">
-    <h2>من نحن</h2>
-    <p>نحن فريق مكون من مهندسين برمجيات: محمد سيد وأحمد عبد الوهاب، نمتلك أكثر من 8 سنوات من الخبرة في بناء وتطوير البرمجيات الحديثة.</p>
-    <p>نُقدّم حلول تقنية مبتكرة للشركات الناشئة والمؤسسات، نستخدم أحدث الأدوات والتقنيات في بناء التطبيقات والمواقع الرقمية، ونهتم بتجربة المستخدم وجودة الأداء.</p>
-  </section>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <span class="brand-icon">&lt;/&gt;</span>
+                <span class="brand-text">Dev Portfolio</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active">الرئيسية</a></li>
+                <li><a href="#about" class="nav-link">نبذة عني</a></li>
+                <li><a href="#services" class="nav-link">الخدمات</a></li>
+                <li><a href="#projects" class="nav-link">المشاريع</a></li>
+                <li><a href="#contact" class="nav-link">تواصل معي</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="القائمة">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
 
-  <section class="section experience">
-    <h2>الخبرات</h2>
-    <ul>
-      <li>تطوير تطبيقات جوال باستخدام Flutter و React Native</li>
-      <li>تصميم واجهات UI/UX عصرية وسهلة الاستخدام</li>
-      <li>تطوير مواقع متقدمة باستخدام Laravel، Next.js، Node.js</li>
-      <li>قواعد بيانات MySQL، MongoDB، Firebase</li>
-      <li>خبرة في DevOps والنشر السحابي (DigitalOcean، Vercel)</li>
-      <li>إدارة فرق تقنية باستخدام منهجيات Agile وScrum</li>
-    </ul>
-  </section>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="hero-pattern"></div>
+            <div class="hero-gradient"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="title-line">مرحباً، أنا</span>
+                        <span class="title-name">محمد أحمد</span>
+                        <span class="title-subtitle">مهندس ومطور تطبيقات محترف</span>
+                    </h1>
+                    <p class="hero-description">
+                        متخصص في تطوير تطبيقات الجوال والمواقع الإلكترونية وتطبيقات الويب
+                        <br>بخبرة تفوق <strong>8 سنوات</strong> وأكثر من <strong>20 مشروع</strong> ناجح
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">
+                            <span>استعرض أعمالي</span>
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            <span>تواصل معي</span>
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="image-wrapper">
+                        <div class="code-animation">
+                            <pre><code>function createApp() {
+  const vision = 'excellence';
+  const experience = '8+ years';
+  const projects = 20;
+  
+  return {
+    mobile: ['iOS', 'Android'],
+    web: ['React', 'Vue', 'Node'],
+    quality: '100%'
+  };
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse"></div>
+        </div>
+    </section>
 
-  <section class="section projects">
-    <h2>بعض مشاريعنا</h2>
-    <div class="project">نظام تعليمي متكامل (E-Learning)</div>
-    <div class="project">تطبيق حجز سيارات مع تتبع مباشر</div>
-    <div class="project">منصة تسوق إلكتروني متكاملة</div>
-    <div class="project">نظام محاسبة للشركات الصغيرة</div>
-    <div class="project">موقع استشارات قانونية</div>
-    <div class="project">تطبيق لياقة وتغذية شخصية</div>
-    <div class="project">نظام حجز مواعيد أطباء</div>
-    <div class="project">موقع تسويق عقاري متجاوب</div>
-    <div class="project">منصة مزادات إلكترونية</div>
-    <div class="project">موقع لمعرض سيارات</div>
-    <div class="project">تطبيق لإدارة مهام الفريق</div>
-    <div class="project">منصة تعليم لغات</div>
-    <div class="project">موقع دليل سياحي تفاعلي</div>
-    <div class="project">تطبيق بث مباشر للمحاضرات</div>
-    <div class="project">نظام إدارة موظفين</div>
-    <div class="project">موقع ملف شخصي تفاعلي (Portfolio)</div>
-    <div class="project">منصة تحليل بيانات للشركات</div>
-    <div class="project">تطبيق مواعيد الصيانة للعملاء</div>
-    <div class="project">موقع خدمات فنية حرة</div>
-    <div class="project">نظام حجوزات للفنادق والمنتجعات</div>
-  </section>
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">نبذة عني</span>
+                <h2 class="section-title">من أنا؟</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="lead">
+                        مهندس ومطور تطبيقات شغوف بالتكنولوجيا والابتكار، أحول الأفكار إلى واقع رقمي يعمل بكفاءة وجمال.
+                    </p>
+                    <p>
+                        مع خبرة تمتد لأكثر من 8 سنوات في مجال تطوير البرمجيات، قمت بتنفيذ أكثر من 20 مشروعاً متنوعاً 
+                        يشمل تطبيقات الجوال للأندرويد وiOS، المواقع الإلكترونية الحديثة، وتطبيقات الويب المعقدة.
+                    </p>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number" data-target="8">0</div>
+                            <div class="stat-label">سنوات خبرة</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" data-target="20">0</div>
+                            <div class="stat-label">مشروع منجز</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" data-target="100">0</div>
+                            <div class="stat-label">رضا العملاء %</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skills-container">
+                    <h3 class="skills-title">المهارات التقنية</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <i class="fab fa-android"></i>
+                            <span>Android Development</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-apple"></i>
+                            <span>iOS Development</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-react"></i>
+                            <span>React & React Native</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-vuejs"></i>
+                            <span>Vue.js</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-node"></i>
+                            <span>Node.js</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-js"></i>
+                            <span>JavaScript/TypeScript</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-python"></i>
+                            <span>Python</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-database"></i>
+                            <span>Database Design</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">ماذا أقدم</span>
+                <h2 class="section-title">الخدمات</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="service-title">تطبيقات الجوال</h3>
+                    <p class="service-description">
+                        تطوير تطبيقات جوال احترافية لنظامي Android و iOS باستخدام أحدث التقنيات مثل React Native و Flutter
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> تصميم واجهات مستخدم جذابة</li>
+                        <li><i class="fas fa-check"></i> أداء سريع وسلس</li>
+                        <li><i class="fas fa-check"></i> تكامل مع APIs</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3 class="service-title">المواقع الإلكترونية</h3>
+                    <p class="service-description">
+                        تصميم وتطوير مواقع إلكترونية حديثة ومتجاوبة مع جميع الأجهزة باستخدام أفضل الممارسات
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> تصميم متجاوب (Responsive)</li>
+                        <li><i class="fas fa-check"></i> SEO محسّن</li>
+                        <li><i class="fas fa-check"></i> سرعة تحميل فائقة</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="service-title">تطبيقات الويب</h3>
+                    <p class="service-description">
+                        بناء تطبيقات ويب متقدمة وقابلة للتطوير باستخدام React، Vue.js، و Node.js
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Single Page Applications</li>
+                        <li><i class="fas fa-check"></i> لوحات تحكم إدارية</li>
+                        <li><i class="fas fa-check"></i> أنظمة متكاملة</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">أعمالي</span>
+                <h2 class="section-title">المشاريع المميزة</h2>
+            </div>
+            
+            <!-- 
+                ملاحظة للمطور: لإضافة مشروع جديد
+                1. انسخ div بكلاس "project-card" كاملاً
+                2. غيّر محتوى:
+                   - عنوان المشروع (project-title)
+                   - وصف المشروع (project-description)
+                   - التقنيات (project-tags) - أضف/احذف span حسب الحاجة
+                   - رابط المشروع (href في الزر)
+                3. اختر أيقونة مناسبة من Font Awesome للأيقونة (project-icon)
+            -->
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">تطبيق متجر إلكتروني</h3>
+                        <p class="project-description">
+                            تطبيق جوال متكامل للتجارة الإلكترونية مع نظام دفع آمن وإدارة شاملة للمنتجات والطلبات
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">React Native</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">MongoDB</span>
+                        </div>
+                        <a href="#" class="project-link">
+                            <span>المزيد من التفاصيل</span>
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">منصة تعليمية تفاعلية</h3>
+                        <p class="project-description">
+                            نظام تعليم إلكتروني شامل يتضمن دروساً تفاعلية، اختبارات، وتتبع تقدم الطلاب
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Vue.js</span>
+                            <span class="tag">Laravel</span>
+                            <span class="tag">MySQL</span>
+                        </div>
+                        <a href="#" class="project-link">
+                            <span>المزيد من التفاصيل</span>
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-icon">
+                            <i class="fas fa-hospital"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">نظام إدارة العيادات</h3>
+                        <p class="project-description">
+                            تطبيق شامل لإدارة المواعيد، السجلات الطبية، والفواتير للعيادات الطبية
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Express</span>
+                            <span class="tag">PostgreSQL</span>
+                        </div>
+                        <a href="#" class="project-link">
+                            <span>المزيد من التفاصيل</span>
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">تطبيق توصيل الطعام</h3>
+                        <p class="project-description">
+                            منصة توصيل طعام متقدمة مع تتبع الطلبات في الوقت الفعلي ونظام تقييم المطاعم
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Flutter</span>
+                            <span class="tag">Firebase</span>
+                            <span class="tag">Maps API</span>
+                        </div>
+                        <a href="#" class="project-link">
+                            <span>المزيد من التفاصيل</span>
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">لوحة تحكم تحليلية</h3>
+                        <p class="project-description">
+                            نظام متقدم لتحليل البيانات وعرض الإحصائيات بطريقة تفاعلية وجذابة
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">D3.js</span>
+                            <span class="tag">Python</span>
+                        </div>
+                        <a href="#" class="project-link">
+                            <span>المزيد من التفاصيل</span>
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">تطبيق إدارة المهام</h3>
+                        <p class="project-description">
+                            أداة إنتاجية شاملة لإدارة المشاريع والمهام مع ميزات التعاون الجماعي
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">React Native</span>
+                            <span class="tag">GraphQL</span>
+                            <span class="tag">MongoDB</span>
+                        </div>
+                        <a href="#" class="project-link">
+                            <span>المزيد من التفاصيل</span>
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">تواصل معي</span>
+                <h2 class="section-title">لنعمل معاً</h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3 class="contact-title">معلومات التواصل</h3>
+                    <p class="contact-description">
+                        هل لديك مشروع أو فكرة تريد تحويلها إلى واقع؟ تواصل معي الآن ودعنا نبدأ رحلة النجاح معاً!
+                    </p>
+                    
+                    <!-- 
+                        ملاحظة للمطور: لتغيير معلومات التواصل
+                        1. ابحث عن div بكلاس "contact-item"
+                        2. غيّر:
+                           - الأيقونة (i class)
+                           - العنوان (contact-item-title)
+                           - المحتوى (contact-item-value)
+                           - الرابط (href)
+                    -->
+                    
+                    <div class="contact-items">
+                        <div class="contact-item">
+                            <div class="contact-item-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-item-content">
+                                <h4 class="contact-item-title">هاتف</h4>
+                                <a href="tel:+201234567890" class="contact-item-value">+20 123 456 7890</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-item-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-item-content">
+                                <h4 class="contact-item-title">البريد الإلكتروني</h4>
+                                <a href="mailto:contact@example.com" class="contact-item-value">contact@example.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-item-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="contact-item-content">
+                                <h4 class="contact-item-title">واتساب</h4>
+                                <a href="https://wa.me/201234567890" target="_blank" class="contact-item-value">+20 123 456 7890</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <h4 class="social-title">تابعني على</h4>
+                        <div class="social-icons">
+                            <!-- غيّر الروابط حسب حساباتك -->
+                            <a href="https://github.com/yourusername" target="_blank" class="social-icon" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/yourusername" target="_blank" class="social-icon" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://twitter.com/yourusername" target="_blank" class="social-icon" aria-label="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://instagram.com/yourusername" target="_blank" class="social-icon" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://behance.net/yourusername" target="_blank" class="social-icon" aria-label="Behance">
+                                <i class="fab fa-behance"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-container">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">الاسم</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">البريد الإلكتروني</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">الموضوع</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">الرسالة</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <span>إرسال الرسالة</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="brand-icon">&lt;/&gt;</span>
+                    <span class="brand-text">Dev Portfolio</span>
+                </div>
+                <p class="footer-text">
+                    مهندس ومطور تطبيقات محترف | تحويل الأفكار إلى واقع رقمي
+                </p>
+                <p class="footer-copyright">
+                    © 2024 جميع الحقوق محفوظة
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Admin Access Button (Hidden) -->
+    <div class="admin-access" id="adminAccess">
+        <button class="admin-btn" id="adminBtn">⚙️</button>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
