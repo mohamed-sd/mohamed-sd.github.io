@@ -1370,6 +1370,22 @@ section {
     .brand-subtitle {
         display: none;
     }
+
+    .navbar .container {
+        gap: var(--spacing-sm);
+    }
+
+    .nav-brand {
+        flex: 1;
+        min-width: 0;
+        font-size: 1.1rem;
+    }
+
+    .brand-text {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
     :root {
         font-size: 14px;
     }
@@ -1377,21 +1393,28 @@ section {
     .nav-menu {
         position: fixed;
         top: 70px;
-        right: -100%;
+        right: 0;
+        left: 0;
         width: 100%;
         height: calc(100vh - 70px);
         background: rgba(11, 19, 43, 0.98);
         flex-direction: column;
         padding: var(--spacing-lg);
-        transition: right var(--transition-normal);
+        max-width: 100vw;
+        overflow-y: auto;
+        transform: translateX(100%);
+        transition: transform var(--transition-normal);
     }
     
     .nav-menu.active {
-        right: 0;
+        transform: translateX(0);
     }
     
     .nav-toggle {
         display: flex;
+        flex: 0 0 auto;
+        position: relative;
+        z-index: 1001;
     }
     
     .nav-toggle.active span:nth-child(1) {
