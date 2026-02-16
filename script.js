@@ -355,7 +355,7 @@ function showAdminPanel() {
     `;
     
     // Get current theme
-    const currentTheme = localStorage.getItem('siteTheme') || 'normal';
+    const currentTheme = window.siteTheme || 'normal';
     
     panelContent.innerHTML = `
         <h2 style="text-align: center; margin-bottom: 2rem; color: #0f172a; font-family: 'Cairo', sans-serif; font-size: 2rem;">
@@ -472,8 +472,8 @@ function showAdminPanel() {
     document.getElementById('applyTheme').addEventListener('click', () => {
         const selectedTheme = document.querySelector('input[name="theme"]:checked').value;
         applyTheme(selectedTheme);
-        localStorage.setItem('siteTheme', selectedTheme);
-        alert('تم تطبيق التصميم بنجاح! ✓');
+        window.siteTheme = selectedTheme;
+        showGlobalThemeHint(selectedTheme);
         document.body.removeChild(panel);
     });
     
@@ -503,11 +503,37 @@ function applyTheme(theme) {
     }
 }
 
-// Load saved theme on page load
+// Load shared theme on page load
 window.addEventListener('DOMContentLoaded', () => {
-    const savedTheme = localStorage.getItem('siteTheme') || 'normal';
-    applyTheme(savedTheme);
+    loadGlobalTheme();
 });
+
+async function loadGlobalTheme() {
+    try {
+        const response = await fetch('theme.json', { cache: 'no-store' });
+        if (response.ok) {
+            const data = await response.json();
+            if (data && typeof data.theme === 'string' && data.theme.length > 0) {
+                window.siteTheme = data.theme;
+                applyTheme(data.theme);
+                return;
+            }
+        }
+    } catch (error) {
+        // Fallback to default theme if the shared file is missing or invalid.
+    }
+
+    window.siteTheme = 'normal';
+    applyTheme('normal');
+}
+
+function showGlobalThemeHint(theme) {
+    const jsonPreview = JSON.stringify({ theme }, null, 2);
+    alert(
+        'تم تطبيق التصميم للمعاينة. لتطبيقه لكل الزوار، عدل ملف theme.json بهذا المحتوى:\n\n' +
+        jsonPreview
+    );
+}
 
 // ====================================
 // Additional Enhancements
