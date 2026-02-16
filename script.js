@@ -5,13 +5,33 @@
 
 const navToggle = document.getElementById('navToggle');
 const navMenu = document.getElementById('navMenu');
+let pendingNavTargetId = null;
+
+function getLinkHash(link) {
+    const href = link.getAttribute('href');
+    if (!href) return null;
+    const hashIndex = href.indexOf('#');
+    if (hashIndex === -1) return null;
+    return href.slice(hashIndex + 1);
+}
+
+function setActiveNavLink(targetId) {
+    if (!targetId) return;
+    navLinks.forEach(link => {
+        const linkHash = getLinkHash(link);
+        link.classList.toggle('active', linkHash === targetId);
+    });
+}
 
 // Smooth Scrolling for Navigation
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const targetSelector = this.getAttribute('href');
+        const target = document.querySelector(targetSelector);
         if (target) {
+            pendingNavTargetId = target.id;
+            setActiveNavLink(target.id);
             target.scrollIntoView({
                 behavior: 'smooth',
                 block: 'start'
@@ -62,23 +82,33 @@ const navLinks = document.querySelectorAll('.nav-link');
 function highlightNavigation() {
     const scrollY = window.pageYOffset;
 
+    if (pendingNavTargetId) {
+        const pendingSection = document.getElementById(pendingNavTargetId);
+        if (pendingSection) {
+            const sectionTop = pendingSection.offsetTop - 100;
+            const sectionHeight = pendingSection.offsetHeight;
+            if (scrollY >= sectionTop && scrollY <= sectionTop + sectionHeight) {
+                pendingNavTargetId = null;
+                setActiveNavLink(pendingSection.id);
+            }
+            return;
+        }
+        pendingNavTargetId = null;
+    }
+
     sections.forEach(section => {
         const sectionHeight = section.offsetHeight;
         const sectionTop = section.offsetTop - 100;
         const sectionId = section.getAttribute('id');
 
         if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${sectionId}`) {
-                    link.classList.add('active');
-                }
-            });
+            setActiveNavLink(sectionId);
         }
     });
 }
 
 window.addEventListener('scroll', highlightNavigation);
+window.addEventListener('DOMContentLoaded', highlightNavigation);
 
 // Animated Counter for Stats
 function animateCounter(element, target, duration = 2000) {

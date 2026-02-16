@@ -76,7 +76,7 @@
         --dark-light: #cbd5e1;
         --gray: #94a3b8;
         --gray-light: #475569;
-        --white: #0b1220;
+        --white: #fff;
         --off-white: #0b1220;
         --surface: #111827;
         --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
@@ -390,21 +390,37 @@ body.celebration-theme .theme-overlay {
 }
 
 @media (prefers-color-scheme: dark) {
-    .nav-link:visited {
-        color: var(--white);
+    .navbar {
+        background: rgba(2, 6, 23, 0.92);
+    }
+
+    .nav-brand,
+    .brand-text,
+    .nav-link,
+    .nav-link:visited,
+    .nav-link.active {
+        color: #ffffff;
     }
 
     .nav-toggle span {
-        background: var(--white);
+        background: #ffffff;
     }
 }
 
-body.dark-theme .nav-link:visited {
-    color: var(--white);
+body.dark-theme .navbar {
+    background: rgba(2, 6, 23, 0.92);
+}
+
+body.dark-theme .nav-brand,
+body.dark-theme .brand-text,
+body.dark-theme .nav-link,
+body.dark-theme .nav-link:visited,
+body.dark-theme .nav-link.active {
+    color: #ffffff;
 }
 
 body.dark-theme .nav-toggle span {
-    background: var(--white);
+    background: #ffffff;
 }
 
 .nav-toggle {
