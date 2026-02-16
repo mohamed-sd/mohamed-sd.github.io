@@ -1515,6 +1515,78 @@ section {
 }
 
 @media (max-width: 480px) {
+    :root {
+        font-size: 13px;
+    }
+
+    section {
+        padding: calc(var(--spacing-lg) + 0.5rem) 0;
+    }
+
+    .hero {
+        padding-top: 100px;
+    }
+
+    .hero-content {
+        gap: var(--spacing-lg);
+    }
+
+    .title-name {
+        font-size: 2rem;
+    }
+
+    .title-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .hero-description {
+        font-size: 0.95rem;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+    }
+
+    .section-lead {
+        font-size: 0.95rem;
+    }
+
+    .service-card,
+    .project-content,
+    .contact-info,
+    .contact-form-container,
+    .details-card,
+    .gallery {
+        padding: var(--spacing-md);
+    }
+
+    .service-icon {
+        width: 64px;
+        height: 64px;
+        font-size: 2rem;
+    }
+
+    .project-image {
+        height: 160px;
+    }
+
+    .stat-number {
+        font-size: 2.4rem;
+    }
+
+    .code-animation {
+        padding: var(--spacing-md);
+    }
+
+    .code-animation pre {
+        font-size: 0.78rem;
+    }
+
+    .gallery-thumb img {
+        width: 90px;
+        height: 60px;
+    }
+
     .container {
         padding: 0 var(--spacing-sm);
     }
