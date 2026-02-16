@@ -196,6 +196,29 @@ body.ramadan-theme::before {
     font-size: 3rem;
     z-index: 999;
     animation: float 3s ease-in-out infinite;
+    background:
+        radial-gradient(circle at 10% 20%, rgba(15, 118, 110, 0.08), transparent 45%),
+        radial-gradient(circle at 90% 10%, rgba(14, 165, 233, 0.08), transparent 48%),
+        radial-gradient(circle at 80% 80%, rgba(245, 158, 11, 0.08), transparent 45%),
+        linear-gradient(120deg, rgba(15, 118, 110, 0.02), rgba(11, 19, 43, 0.01));
+}
+
+@media (prefers-color-scheme: dark) {
+    body.ramadan-theme::before {
+        background:
+            radial-gradient(circle at 10% 20%, rgba(34, 199, 184, 0.12), transparent 48%),
+            radial-gradient(circle at 90% 10%, rgba(56, 189, 248, 0.12), transparent 50%),
+            radial-gradient(circle at 80% 80%, rgba(251, 191, 36, 0.1), transparent 48%),
+            linear-gradient(120deg, rgba(2, 6, 23, 0.25), rgba(2, 6, 23, 0.15));
+    }
+}
+
+body.dark-theme.ramadan-theme::before {
+    background:
+        radial-gradient(circle at 10% 20%, rgba(34, 199, 184, 0.12), transparent 48%),
+        radial-gradient(circle at 90% 10%, rgba(56, 189, 248, 0.12), transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(251, 191, 36, 0.1), transparent 48%),
+        linear-gradient(120deg, rgba(2, 6, 23, 0.25), rgba(2, 6, 23, 0.15));
 }
 
 .ramadan-decor {
@@ -364,6 +387,24 @@ body.celebration-theme .theme-overlay {
 .nav-link.active::after {
     width: 100%;
     right: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+    .nav-link:visited {
+        color: var(--white);
+    }
+
+    .nav-toggle span {
+        background: var(--white);
+    }
+}
+
+body.dark-theme .nav-link:visited {
+    color: var(--white);
+}
+
+body.dark-theme .nav-toggle span {
+    background: var(--white);
 }
 
 .nav-toggle {
