@@ -1467,6 +1467,37 @@ section {
     .hero-badges {
         justify-content: center;
     }
+
+    .hero-text,
+    .about-text,
+    .skills-container,
+    .service-card,
+    .project-content,
+    .contact-info,
+    .contact-form-container,
+    .details-card {
+        text-align: center;
+    }
+
+    .service-features li,
+    .project-tags,
+    .details-tags {
+        justify-content: center;
+    }
+
+    .contact-items {
+        align-items: center;
+    }
+
+    .contact-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
     
     .btn {
         width: 100%;
