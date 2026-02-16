@@ -1405,6 +1405,7 @@ section {
         overflow-y: auto;
         transform: translateX(100%);
         transition: transform var(--transition-normal);
+        z-index: 1000;
     }
     
     .nav-menu.active {
@@ -1428,6 +1429,10 @@ section {
     
     .nav-toggle.active span:nth-child(3) {
         transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    body.menu-open {
+        overflow: hidden;
     }
     
     .title-name {
